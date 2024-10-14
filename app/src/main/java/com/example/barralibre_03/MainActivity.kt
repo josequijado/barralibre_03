@@ -9,6 +9,11 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import android.widget.TextView
+import android.widget.Toast
+import android.view.Gravity
+import android.view.View
+
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,6 +41,37 @@ class MainActivity : AppCompatActivity() {
 
             override fun afterTextChanged(s: Editable?) {}
         })
+
+        // Configuración del botón para mostrar el Toast al hacer clic
+        btnAceptar.setOnClickListener {
+            val nombre = txtNombre.text.toString().trim()
+
+            // Crear un Toast personalizado
+            val inflater = layoutInflater
+            val customToastLayout: View = inflater.inflate(R.layout.custom_toast_ma, null)
+            val toastText = customToastLayout.findViewById<TextView>(R.id.toastText)
+            toastText.text = "Hola, $nombre"
+
+            // Crear y configurar el Toast
+            val toast = Toast(this)
+            toast.duration = Toast.LENGTH_LONG
+            toast.view = customToastLayout
+
+            // Calcular la posición para que aparezca debajo del botón
+            val location = IntArray(2)
+            btnAceptar.getLocationOnScreen(location)
+            val xOffset = 0
+            val yOffset = location[1] + btnAceptar.height + 20  // Desplazamiento de 20 píxeles debajo del botón
+
+            // Establecer la posición y mostrar el Toast
+            toast.setGravity(Gravity.TOP or Gravity.CENTER_HORIZONTAL, xOffset, yOffset)
+            toast.show()
+
+            // Deshabilitar el botón y el campo de texto después de enviar
+            btnAceptar.isEnabled = false
+            txtNombre.isEnabled = false
+        }
+
 
     }
 }
