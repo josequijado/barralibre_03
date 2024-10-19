@@ -3,4 +3,5 @@
     <string name="text_name">Nombre</string>
     <string name="button_send">Enviar</string>
     <string name="hint_edit_text_name">Tu nombre</string>
+    <string name="Bienvenido">Bienvenid@</string>
 </resources>
