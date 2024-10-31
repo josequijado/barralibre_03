@@ -16,7 +16,7 @@
         android:layout_marginTop="50dp"
         android:fontFamily="sans-serif"
         android:text="@string/text_name"
-        android:textColor="#000000"
+        android:textColor="@color/black"
         android:textSize="60sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -32,10 +32,10 @@
         android:background="@drawable/main_edit_text"
         android:ems="10"
         android:gravity="start"
-        android:textColor="#000000"
+        android:textColor="@color/black"
         android:textSize="50sp"
         android:padding="10dp"
-        android:autofillHints=""
+        android:autofillHints="name"
         android:hint="@string/hint_edit_text_name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
